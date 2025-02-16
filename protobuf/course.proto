@@ -1,18 +1,19 @@
-syntax = "proto3"
+syntax = "proto3";
 
 package myfirstproto.mooc;
 
-import "myfirstproto.mooc.content"
+import "article.proto";
+import "video.proto";
 
 message Course {
-
   message Lecture {
-    oneOf content {
-      mycompany.mooc.content.Video = 1;
-      mycompany.mooc.content.Article = 2;
+    oneof content {
+      myfirstprotobuf.mooc.content.Video video = 1;
+      myfirstprotobuf.mooc.content.Article article = 2;
     }
   }
+
   string name = 1;
   repeated string authors = 2;
-  map<string, Lecture> = 3; 
+  map<string, Lecture> lectures = 3; 
 }
