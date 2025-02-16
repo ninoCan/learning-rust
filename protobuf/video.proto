@@ -2,14 +2,15 @@ syntax = "proto3";
 
 package myfirstprotobuf.mooc.content;
 
-enum VideoType {
-  UNDEFINED = 0;
-  MP4 = 1;
-  MOV = 2;
-  UNSUPPORTED = 3; // Catch-all for unsupported formats
-}
 
 message Video {
-  VideoType type = 1;
+  enum Type {
+    UNSPECIFIED = 0;
+    MP4 = 1;
+    MOV = 2;
+    UNSUPPORTED = 3; // Catch-all for unsupported formats
+  }
+
+  Type type = 1;
   string url = 2;
 }
