@@ -1,0 +1,18 @@
+syntax = "proto3"
+
+package myfirstproto.mooc;
+
+import "myfirstproto.mooc.content"
+
+message Course {
+
+  message Lecture {
+    oneOf content {
+      mycompany.mooc.content.Video = 1;
+      mycompany.mooc.content.Article = 2;
+    }
+  }
+  string name = 1;
+  repeated string authors = 2;
+  map<string, Lecture> = 3; 
+}
